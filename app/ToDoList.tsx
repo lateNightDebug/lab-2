@@ -1,12 +1,17 @@
 import React from "react";
 import { ScrollView, Pressable, View, Text, StyleSheet } from "react-native";
 
-export default function ToDoList() {
+export default function ToDoList({tasks}:{ tasks: string[] }) {
   return (
     <ScrollView>
-      <Pressable>
+      {tasks.map((task:string)=>(<Pressable>
         <View style={[styles.task, styles.completed]}>
-          <Text style={styles.taskText}>Do laundry</Text>
+          <Text style={styles.taskText}>{task}</Text>
+        </View>
+      </Pressable>))}
+      {/* <Pressable>
+        <View style={[styles.task, styles.completed]}>
+          <Text style={styles.taskText}>Do laund</Text>
         </View>
       </Pressable>
       <Pressable>
@@ -18,7 +23,7 @@ export default function ToDoList() {
         <View style={[styles.task, styles.completed]}>
           <Text style={styles.taskText}>Walk dog</Text>
         </View>
-      </Pressable>
+      </Pressable> */}
     </ScrollView>
   );
 }
